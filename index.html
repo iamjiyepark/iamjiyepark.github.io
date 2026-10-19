@@ -626,6 +626,11 @@ canvas {
         this.isDucking = false;
         this.h = this.standHeight;
         this.w = this.standWidth;
+        // Recalculate vertical position so the box sits ON the ground line,
+        // not under it, when transitioning from duck back to standing.
+        if (this.grounded) {
+          this.y = GROUND - this.h;
+        }
       }
 
       // Jump
